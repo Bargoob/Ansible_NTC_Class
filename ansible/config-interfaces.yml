@@ -1,0 +1,14 @@
+---
+
+  - name: CONFIGURING INTERFACES
+    hosts: iosxe
+    gather_facts: no
+
+    tasks:
+
+    - name: CONFIGURING LOOPBACK
+      ios_config:
+        parents:
+          - interface Loopback200
+        commands:
+          - ip address 10.200.100.{{ inventory_hostname[-1] }} 255.255.255.255

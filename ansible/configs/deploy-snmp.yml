@@ -1,0 +1,14 @@
+---
+
+- name: GENERATE SNMP CONFIGS USING JINJA2 - AMERICAS
+  hosts: AMER
+  gather_facts: no
+
+  vars:
+    snmp_ro: ntc_course
+
+  tasks:
+    - name: GENERATE IOS SNMP CONFIGURATIONS
+      template:
+        src: ios-snmp.j2
+        dest: "./configs/{{ inventory_hostname }}-snmp.cfg"
